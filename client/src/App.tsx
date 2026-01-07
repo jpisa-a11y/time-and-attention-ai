@@ -12,7 +12,7 @@ import Mentors from "./pages/Mentors";
 function Router() {
   return (
     <Switch>
-      <Route path={"/ "} component={Home} />
+      <Route path={"/"} component={Home} />
       <Route path={"/how-it-works"} component={HowItWorks} />
       <Route path={"/mentors"} component={Mentors} />
       <Route path={"/404"} component={NotFound} />
