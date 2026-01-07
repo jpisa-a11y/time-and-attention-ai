@@ -24,8 +24,8 @@ export default function Home() {
             <a href="#vision" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
               Vision
             </a>
-            <a href="#impact" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
-              Impact
+            <a href="/how-it-works" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
+              How It Works
             </a>
             <a href="#mission" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
               Mission
