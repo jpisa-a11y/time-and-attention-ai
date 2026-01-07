@@ -7,16 +7,20 @@ import { BookOpen, Calendar, Clock, ArrowRight } from "lucide-react";
  * AI, human values, and societal transformation.
  */
 
+// Average reading speed in words per minute
+const WORDS_PER_MINUTE = 200;
+
 /**
  * Calculate read time based on word count
- * Average reading speed: 200 words per minute
+ * Uses industry-standard average reading speed of 200 words per minute
  */
 function calculateReadTime(content: string[]): string {
   const totalWords = content.reduce((count, paragraph) => {
-    return count + paragraph.split(/\s+/).filter(word => word.length > 0).length;
+    const words = paragraph.match(/\S+/g);
+    return count + (words ? words.length : 0);
   }, 0);
   
-  const minutes = Math.ceil(totalWords / 200);
+  const minutes = Math.ceil(totalWords / WORDS_PER_MINUTE);
   return `${minutes} min read`;
 }
 
