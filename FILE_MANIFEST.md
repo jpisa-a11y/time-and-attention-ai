@@ -1,11 +1,13 @@
 # File Manifest: Time & Attention AI Website
 
 ## Project Overview
+
 Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI vision with three main pages and custom design system.
 
 ## Directory Structure
 
 ### Root Configuration Files
+
 ```
 package.json                 # Project dependencies and scripts
 tsconfig.json               # TypeScript configuration
@@ -21,11 +23,13 @@ FILE_MANIFEST.md             # This file
 ### Client Directory: `/client`
 
 #### HTML Entry Point
+
 ```
 client/index.html           # Main HTML file with Google Fonts imports
 ```
 
 #### Public Assets: `/client/public`
+
 ```
 client/public/images/
   ├── hero-ai-liberation.jpg           # Hero section illustration
@@ -46,6 +50,7 @@ client/public/images/
 #### Source Code: `/client/src`
 
 ##### Main Application Files
+
 ```
 client/src/
   ├── main.tsx              # React entry point
@@ -54,6 +59,7 @@ client/src/
 ```
 
 ##### Pages: `/client/src/pages`
+
 ```
 client/src/pages/
   ├── Home.tsx              # Homepage with hero, vision, mission
@@ -63,6 +69,7 @@ client/src/pages/
 ```
 
 ##### Components: `/client/src/components`
+
 ```
 client/src/components/
   ├── ErrorBoundary.tsx     # Error boundary wrapper
@@ -122,24 +129,28 @@ client/src/components/
 ```
 
 ##### Contexts: `/client/src/contexts`
+
 ```
 client/src/contexts/
   └── ThemeContext.tsx      # Light/dark theme management
 ```
 
 ##### Utilities: `/client/src/lib`
+
 ```
 client/src/lib/
   └── utils.ts              # Utility functions (cn, classname merging)
 ```
 
 ### Server Directory: `/server`
+
 ```
 server/
   └── index.ts              # Express server for production
 ```
 
 ### Shared Directory: `/shared`
+
 ```
 shared/
   └── const.ts              # Shared constants
@@ -148,6 +159,7 @@ shared/
 ## Key Files Explained
 
 ### Design System: `client/src/index.css`
+
 - Tailwind CSS 4 configuration
 - Custom CSS variables for colors
 - Typography system setup
@@ -156,6 +168,7 @@ shared/
 - Color palette: Terracotta, Sage, Forest Green, Sand
 
 ### Router: `client/src/App.tsx`
+
 - Wouter-based client-side routing
 - Three main routes: `/`, `/how-it-works`, `/mentors`
 - ThemeProvider wrapper
@@ -163,6 +176,7 @@ shared/
 - Toast notifications (Sonner)
 
 ### Homepage: `client/src/pages/Home.tsx`
+
 - Hero section with custom illustration
 - Joseph Pisa's vision explanation
 - Problem statement
@@ -174,6 +188,7 @@ shared/
 - Footer with links
 
 ### How It Works: `client/src/pages/HowItWorks.tsx`
+
 - 5-step interactive timeline
 - Expandable step cards
 - Overview stats section
@@ -182,6 +197,7 @@ shared/
 - Fully responsive design
 
 ### Mentors: `client/src/pages/Mentors.tsx`
+
 - Four licensed professional profiles
   - Sarah Chen (Mortgage Banker)
   - James Rodriguez (Financial Planner)
@@ -197,39 +213,48 @@ shared/
 ## Technology Stack
 
 ### Frontend Framework
+
 - React 19.2.1
 - TypeScript 5.6.3
 - Vite 7.1.7 (build tool)
 
 ### Styling
+
 - Tailwind CSS 4.1.14
 - PostCSS 8.4.47
 - Custom CSS variables
 
 ### Routing
+
 - Wouter 3.3.5 (lightweight client-side router)
 
 ### UI Components
+
 - shadcn/ui (Radix UI primitives)
 - 50+ pre-built accessible components
 
 ### Icons & Graphics
+
 - Lucide React 0.453.0 (icon library)
 - Custom watercolor illustrations (AI-generated)
 
 ### Animations
+
 - Framer Motion 12.23.22
 
 ### Forms & Validation
+
 - React Hook Form 7.64.0
 - Zod 4.1.12 (schema validation)
 
 ### Utilities
+
 - Tailwind Merge 3.3.1
 - Class Variance Authority 0.7.1
 - clsx 2.1.1
 
 ### Development Tools
+
 - TypeScript
 - Prettier 3.6.2
 - ESBuild 0.25.0
@@ -237,11 +262,13 @@ shared/
 ## Build & Deployment
 
 ### Development
+
 ```bash
 pnpm dev          # Start dev server on port 3000
 ```
 
 ### Production
+
 ```bash
 pnpm build        # Build for production
 pnpm start        # Start production server
@@ -249,6 +276,7 @@ pnpm preview      # Preview production build
 ```
 
 ### Code Quality
+
 ```bash
 pnpm check        # TypeScript type checking
 pnpm format       # Format code with Prettier
@@ -257,22 +285,26 @@ pnpm format       # Format code with Prettier
 ## Design System Details
 
 ### Colors (OKLCH Format)
+
 - Primary (Terracotta): #c85a3a
 - Secondary (Sage): #a8d5ba
 - Accent (Forest Green): #2d5a3d
 - Background (Sand): #e8dcc8 / #f9f7f4
 
 ### Typography
+
 - Headlines: Cormorant Garamond (serif)
 - Body: Lato (sans-serif)
 - Loaded via Google Fonts
 
 ### Spacing System
+
 - Base unit: 1rem (16px)
 - Responsive padding: 1rem (mobile) → 1.5rem (tablet) → 2rem (desktop)
 - Generous whitespace for organic feel
 
 ### Border Radius
+
 - Small: calc(var(--radius) - 4px)
 - Medium: calc(var(--radius) - 2px)
 - Large: var(--radius)
@@ -299,6 +331,7 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 ## Content Structure
 
 ### Homepage Sections
+
 1. Navigation bar (sticky)
 2. Hero section
 3. Problem statement (3 challenges)
@@ -311,6 +344,7 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 10. Footer
 
 ### How It Works Sections
+
 1. Navigation bar
 2. Hero section
 3. Why human oversight matters
@@ -321,6 +355,7 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 8. Footer
 
 ### Mentors Sections
+
 1. Navigation bar
 2. Hero section
 3. Why human expertise matters (4 benefits)
@@ -383,6 +418,7 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 ## Git History
 
 All development work is tracked in git with meaningful commit messages documenting:
+
 - Initial project setup
 - Design system implementation
 - Homepage development

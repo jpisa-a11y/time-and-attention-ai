@@ -33,6 +33,7 @@ client/
 ## 📄 Pages
 
 ### 1. **Home** (`/`)
+
 - Hero section introducing Joseph Pisa's vision
 - Problem statement highlighting modern life's fragmentation
 - Vision explanation of the "pay it forward" model
@@ -43,6 +44,7 @@ client/
 - Call-to-action
 
 ### 2. **How It Works** (`/how-it-works`)
+
 - Interactive 5-step timeline:
   1. Document Upload
   2. AI Analysis & Processing
@@ -55,6 +57,7 @@ client/
 - FAQ addressing common concerns
 
 ### 3. **Mentors** (`/mentors`)
+
 - Four licensed professionals:
   - **Sarah Chen**: Licensed Mortgage Banker & Financial Advisor
   - **James Rodriguez**: Certified Financial Planner & Real Estate Expert
@@ -68,6 +71,7 @@ client/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 22.13.0+
 - pnpm 10.4.1+
 
@@ -127,6 +131,7 @@ pnpm start
 ## 🌐 Custom Illustrations
 
 The site features custom watercolor illustrations generated specifically for the design:
+
 - Hero AI Liberation illustration
 - Pay It Forward Cycle
 - AI Mentor Connection
@@ -137,10 +142,13 @@ The site features custom watercolor illustrations generated specifically for the
 ## 📝 Content Highlights
 
 ### The Beautiful Paradox
+
 > "AI makes it possible to live a less stressful life and be just as or more productive while increasing efficiency in all sectors of life, allowing for balance between work and family and self-life in the new world of AI."
 
 ### Core Mission
+
 Build a world where:
+
 - AI serves humanity's highest aspirations
 - Time and attention are valued above material accumulation
 - Technology enables a less stressful, more balanced life
@@ -149,17 +157,20 @@ Build a world where:
 ## 🔧 Customization
 
 ### Changing Colors
+
 Edit CSS variables in `client/src/index.css`:
+
 ```css
 :root {
-  --primary: #c85a3a;        /* Terracotta */
-  --secondary: #a8d5ba;      /* Sage */
-  --accent: #2d5a3d;         /* Forest Green */
-  --background: #f9f7f4;     /* Sand/Cream */
+  --primary: #c85a3a; /* Terracotta */
+  --secondary: #a8d5ba; /* Sage */
+  --accent: #2d5a3d; /* Forest Green */
+  --background: #f9f7f4; /* Sand/Cream */
 }
 ```
 
 ### Adding New Pages
+
 1. Create component in `client/src/pages/`
 2. Import in `client/src/App.tsx`
 3. Add route in Router function
@@ -189,6 +200,7 @@ Edit CSS variables in `client/src/index.css`:
 ## 🚢 Deployment
 
 This project is optimized for deployment on Manus or any modern static hosting:
+
 - Vercel
 - Netlify
 - GitHub Pages
