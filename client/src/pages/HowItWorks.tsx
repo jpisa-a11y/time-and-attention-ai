@@ -113,11 +113,17 @@ export default function HowItWorks() {
             <a href="/" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
               Home
             </a>
-            <a href="/#vision" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
-              Vision
+            <a href="/how-it-works" className="text-[#c85a3a] font-semibold transition-colors">
+              How It Works
             </a>
-            <a href="/#mission" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
-              Mission
+            <a href="/mentors" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
+              Mentors
+            </a>
+            <a href="/future-vision" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
+              Future Vision
+            </a>
+            <a href="/insights" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
+              Insights
             </a>
           </div>
         </div>

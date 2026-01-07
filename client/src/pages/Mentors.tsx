@@ -95,6 +95,12 @@ export default function Mentors() {
             <a href="/mentors" className="text-[#c85a3a] font-semibold">
               Mentors
             </a>
+            <a href="/future-vision" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
+              Future Vision
+            </a>
+            <a href="/insights" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
+              Insights
+            </a>
           </div>
         </div>
       </nav>
