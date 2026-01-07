@@ -92,7 +92,7 @@ export default function Mentors() {
             <a href="/how-it-works" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
               How It Works
             </a>
-            <a href="/mentors" className="text-[#c85a3a] font-semibold">
+            <a href="/mentors" className="text-[#c85a3a] font-semibold transition-colors">
               Mentors
             </a>
             <a href="/future-vision" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">

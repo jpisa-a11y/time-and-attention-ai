@@ -216,7 +216,7 @@ export default function Insights() {
                       </div>
                     </div>
                     
-                    <div className="prose prose-lg max-w-none">
+                    <div className="max-w-none">
                       <p className="text-xl text-[#6b6b6b] leading-relaxed mb-8 font-semibold italic border-l-4 border-[#c85a3a] pl-6">
                         {insight.excerpt}
                       </p>
