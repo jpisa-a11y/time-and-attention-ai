@@ -95,7 +95,10 @@ The site uses an "Organic Authenticity" color palette:
 Edit colors in `client/src/index.css`:
 ```css
 :root {
-  --primary: var(--color-blue-700);
+  --primary: #c85a3a;        /* Terracotta */
+  --secondary: #a8d5ba;      /* Sage */
+  --accent: #2d5a3d;         /* Forest Green */
+  --background: #f9f7f4;     /* Sand/Cream */
   /* ... other color variables ... */
 }
 ```
