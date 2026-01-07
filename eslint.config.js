@@ -25,7 +25,7 @@ export default tseslint.config(
 
   // React configuration
   {
-    files: ["**/*.{ts,tsx}"],
+    files: ["**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {
