@@ -1,7 +1,7 @@
 # File Manifest: Time & Attention AI Website
 
 ## Project Overview
-Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI vision with three main pages and custom design system.
+Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI vision with five main pages and custom design system.
 
 ## Directory Structure
 
