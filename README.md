@@ -87,6 +87,22 @@ pnpm dev
 
 The site will be available at `http://localhost:3000`
 
+### Development Scripts
+
+```bash
+# Run linting
+pnpm lint
+
+# Run linting with auto-fix
+pnpm lint:fix
+
+# Format code with Prettier
+pnpm format
+
+# Type checking
+pnpm check
+```
+
 ### Build for Production
 
 ```bash
