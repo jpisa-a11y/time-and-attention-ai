@@ -67,10 +67,13 @@ time-and-attention-ai/
 │   │   │   ├── Home.tsx            # Homepage
 │   │   │   ├── HowItWorks.tsx       # How It Works page
 │   │   │   ├── Mentors.tsx          # Mentors page
+│   │   │   ├── FutureVision.tsx     # Future Vision page
+│   │   │   ├── Insights.tsx         # Insights page
 │   │   │   └── NotFound.tsx         # 404 page
 │   │   ├── components/             # Reusable components
 │   │   │   └── ui/                 # shadcn/ui components
 │   │   ├── contexts/               # React contexts
+│   │   ├── hooks/                  # Custom React hooks
 │   │   ├── lib/                    # Utilities
 │   │   ├── App.tsx                 # Main router
 │   │   ├── main.tsx                # Entry point
@@ -82,7 +85,7 @@ time-and-attention-ai/
 │   └── const.ts                    # Shared constants
 ├── package.json                    # Dependencies
 ├── tsconfig.json                   # TypeScript config
-├── tailwind.config.js              # Tailwind config
+├── vite.config.ts                  # Vite & Tailwind config
 ├── README.md                        # Project documentation
 └── FILE_MANIFEST.md                # Detailed file listing
 ```
@@ -229,6 +232,8 @@ Edit the respective page files:
 - Homepage: `client/src/pages/Home.tsx`
 - How It Works: `client/src/pages/HowItWorks.tsx`
 - Mentors: `client/src/pages/Mentors.tsx`
+- Future Vision: `client/src/pages/FutureVision.tsx`
+- Insights: `client/src/pages/Insights.tsx`
 
 ## Deployment
 
