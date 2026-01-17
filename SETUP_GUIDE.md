@@ -63,6 +63,8 @@ time-and-attention-ai/
 │   │   │   ├── Home.tsx            # Homepage
 │   │   │   ├── HowItWorks.tsx       # How It Works page
 │   │   │   ├── Mentors.tsx          # Mentors page
+│   │   │   ├── FutureVision.tsx     # Future Vision page
+│   │   │   ├── Insights.tsx         # Insights page
 │   │   │   └── NotFound.tsx         # 404 page
 │   │   ├── components/             # Reusable components
 │   │   │   └── ui/                 # shadcn/ui components
@@ -78,7 +80,7 @@ time-and-attention-ai/
 │   └── const.ts                    # Shared constants
 ├── package.json                    # Dependencies
 ├── tsconfig.json                   # TypeScript config
-├── tailwind.config.js              # Tailwind config
+├── vite.config.ts                  # Vite & Tailwind config
 ├── README.md                        # Project documentation
 └── FILE_MANIFEST.md                # Detailed file listing
 ```
@@ -95,7 +97,9 @@ The site uses an "Organic Authenticity" color palette:
 Edit colors in `client/src/index.css`:
 ```css
 :root {
-  --primary: var(--color-blue-700);
+  --primary: #c85a3a;        /* Terracotta */
+  --secondary: #a8d5ba;      /* Sage */
+  --accent: #2d5a3d;         /* Forest Green */
   /* ... other color variables ... */
 }
 ```
@@ -214,6 +218,8 @@ Edit the respective page files:
 - Homepage: `client/src/pages/Home.tsx`
 - How It Works: `client/src/pages/HowItWorks.tsx`
 - Mentors: `client/src/pages/Mentors.tsx`
+- Future Vision: `client/src/pages/FutureVision.tsx`
+- Insights: `client/src/pages/Insights.tsx`
 
 ## Deployment
 
