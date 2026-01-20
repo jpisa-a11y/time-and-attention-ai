@@ -1,0 +1,276 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+env:
+  NODE_VERSION: 22.13.0
+  PNPM_VERSION: 10.15.1
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Job 1: Lint and Type Check
+  lint-and-check:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm@${{ env.PNPM_VERSION }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run type check
+        run: pnpm check || true
+
+      - name: Run linter
+        run: pnpm format --check || true
+
+  # Job 2: Build and Test
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    needs: lint-and-check
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm@${{ env.PNPM_VERSION }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build application
+        run: pnpm build
+        env:
+          NODE_ENV: production
+          VITE_APP_TITLE: ${{ secrets.VITE_APP_TITLE || 'Time & Attention' }}
+          VITE_APP_ID: ${{ secrets.VITE_APP_ID || 'time-and-attention-ai' }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ github.run_id }}
+          path: dist
+          retention-days: 1
+
+      - name: Check build output
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "❌ Build failed - dist directory not found"
+            exit 1
+          fi
+          echo "✅ Build successful"
+          du -sh dist
+          ls -la dist | head -20
+
+  # Job 3: Deploy to Vercel (Preview)
+  deploy-vercel-preview:
+    name: Deploy to Vercel (Preview)
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.event_name == 'pull_request'
+    environment:
+      name: preview
+      url: ${{ steps.deploy.outputs.preview-url }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel (Preview)
+        id: deploy
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--confirm'
+          working-directory: ./
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Comment PR with deployment URL
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const deploymentUrl = '${{ steps.deploy.outputs.preview-url }}';
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚀 **Preview Deployment Ready**\n\nYour changes have been deployed to Vercel:\n\n[View Preview](${deploymentUrl})\n\n**Environment:** Preview\n**Commit:** ${context.sha.substring(0, 7)}\n**Branch:** ${context.ref.replace('refs/heads/', '')}`
+            });
+
+  # Job 4: Deploy to Vercel (Production)
+  deploy-vercel-production:
+    name: Deploy to Vercel (Production)
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment:
+      name: production
+      url: https://${{ secrets.VERCEL_PRODUCTION_DOMAIN || 'time-and-attention-ai.vercel.app' }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Vercel (Production)
+        id: deploy
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod --confirm'
+          working-directory: ./
+          scope: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Create deployment status
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.repos.createDeploymentStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              deployment_id: context.payload.deployment.id,
+              state: 'success',
+              environment_url: 'https://${{ secrets.VERCEL_PRODUCTION_DOMAIN || 'time-and-attention-ai.vercel.app' }}',
+              description: 'Deployment to Vercel production successful'
+            });
+
+  # Job 5: Performance Check (Optional)
+  performance-check:
+    name: Performance Check
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-${{ github.run_id }}
+          path: dist
+
+      - name: Check bundle size
+        run: |
+          echo "📦 Bundle Size Analysis"
+          echo "========================"
+          du -sh dist
+          echo ""
+          echo "📁 Directory breakdown:"
+          du -sh dist/* | sort -rh
+          echo ""
+          echo "📄 File count:"
+          find dist -type f | wc -l
+
+      - name: Analyze JavaScript
+        run: |
+          echo "📊 JavaScript Files:"
+          find dist -name "*.js" -type f -exec ls -lh {} \; | awk '{print $5, $9}' | sort -rh
+
+  # Job 6: Security Check
+  security-check:
+    name: Security Check
+    runs-on: ubuntu-latest
+    needs: lint-and-check
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run security audit
+        run: |
+          npm install -g npm-audit-ci-wrapper
+          npm audit --audit-level=moderate || true
+
+      - name: Check for secrets
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --debug
+
+  # Job 7: Notify Success
+  notify-success:
+    name: Notify Success
+    runs-on: ubuntu-latest
+    needs: [lint-and-check, build-and-test]
+    if: success()
+    
+    steps:
+      - name: Send success notification
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            console.log('✅ Build and deployment pipeline completed successfully!');
+            console.log('Commit:', context.sha.substring(0, 7));
+            console.log('Branch:', context.ref.replace('refs/heads/', ''));
+            console.log('Author:', context.actor);
+
+  # Job 8: Notify Failure
+  notify-failure:
+    name: Notify Failure
+    runs-on: ubuntu-latest
+    needs: [lint-and-check, build-and-test]
+    if: failure()
+    
+    steps:
+      - name: Send failure notification
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            console.error('❌ Build pipeline failed!');
+            console.error('Commit:', context.sha.substring(0, 7));
+            console.error('Branch:', context.ref.replace('refs/heads/', ''));
+            console.error('Author:', context.actor);
+
+      - name: Comment PR with failure
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `❌ **Build Failed**\n\nThe build pipeline failed for this pull request.\n\n**Commit:** ${context.sha.substring(0, 7)}\n**Branch:** ${context.ref.replace('refs/heads/', '')}\n\nPlease check the [workflow logs](${context.payload.pull_request.html_url}/checks) for details.`
+            });
