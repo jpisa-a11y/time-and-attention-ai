@@ -14,12 +14,14 @@ client/
     images/          # Custom generated illustrations
   src/
     pages/
-      Home.tsx       # Hero page with Joseph Pisa's vision
-      HowItWorks.tsx # Interactive 5-step AI qualification timeline
-      Mentors.tsx    # Licensed professionals spotlight
-    components/      # Reusable UI components
-    App.tsx          # Main router and layout
-    index.css        # Design system (Organic Authenticity)
+      Home.tsx         # Hero page with Joseph Pisa's vision
+      HowItWorks.tsx   # Interactive 5-step AI qualification timeline
+      Mentors.tsx      # Licensed professionals spotlight
+      FutureVision.tsx # Joseph Pisa's transformative AI possibilities
+      Insights.tsx     # Essays on AI, time, and human potential
+    components/        # Reusable UI components
+    App.tsx            # Main router and layout
+    index.css          # Design system (Organic Authenticity)
 ```
 
 ## 🎨 Design System: Organic Authenticity with Purpose
@@ -33,6 +35,7 @@ client/
 ## 📄 Pages
 
 ### 1. **Home** (`/`)
+
 - Hero section introducing Joseph Pisa's vision
 - Problem statement highlighting modern life's fragmentation
 - Vision explanation of the "pay it forward" model
@@ -43,6 +46,7 @@ client/
 - Call-to-action
 
 ### 2. **How It Works** (`/how-it-works`)
+
 - Interactive 5-step timeline:
   1. Document Upload
   2. AI Analysis & Processing
@@ -55,6 +59,7 @@ client/
 - FAQ addressing common concerns
 
 ### 3. **Mentors** (`/mentors`)
+
 - Four licensed professionals:
   - **Sarah Chen**: Licensed Mortgage Banker & Financial Advisor
   - **James Rodriguez**: Certified Financial Planner & Real Estate Expert
@@ -65,9 +70,33 @@ client/
 - "Why Human Oversight Matters" section
 - Team philosophy and collective values
 
+### 4. **Future Vision** (`/future-vision`)
+
+- Letter from Joseph Pisa on the transformative possibilities of AI
+- Exploration of AI's potential to revolutionize human existence
+- Vision sections covering:
+  - Universal Financial Liberation
+  - Complete transformation of work-life paradigm
+  - AI serving humanity's highest aspirations
+- Bold examination of societal transformation through AI
+- Personal philosophy on technology and human flourishing
+
+### 5. **Insights** (`/insights`)
+
+- Collection of thought-provoking essays by Joseph Pisa
+- Key articles include:
+  - "Why Time is the New Currency"
+  - "The Beautiful Paradox: Less Stress, More Productivity"
+  - "Why I'm Building a Non-Profit in a Capitalist World"
+  - "The Three Questions That Changed Everything"
+- Read time estimates for each article
+- Deep exploration of AI, time, human values, and societal transformation
+- Personal reflections on building Time & Attention
+
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 22.13.0+
 - pnpm 10.4.1+
 
@@ -127,6 +156,7 @@ pnpm start
 ## 🌐 Custom Illustrations
 
 The site features custom watercolor illustrations generated specifically for the design:
+
 - Hero AI Liberation illustration
 - Pay It Forward Cycle
 - AI Mentor Connection
@@ -137,10 +167,13 @@ The site features custom watercolor illustrations generated specifically for the
 ## 📝 Content Highlights
 
 ### The Beautiful Paradox
+
 > "AI makes it possible to live a less stressful life and be just as or more productive while increasing efficiency in all sectors of life, allowing for balance between work and family and self-life in the new world of AI."
 
 ### Core Mission
+
 Build a world where:
+
 - AI serves humanity's highest aspirations
 - Time and attention are valued above material accumulation
 - Technology enables a less stressful, more balanced life
@@ -149,17 +182,20 @@ Build a world where:
 ## 🔧 Customization
 
 ### Changing Colors
+
 Edit CSS variables in `client/src/index.css`:
+
 ```css
 :root {
-  --primary: #c85a3a;        /* Terracotta */
-  --secondary: #a8d5ba;      /* Sage */
-  --accent: #2d5a3d;         /* Forest Green */
-  --background: #f9f7f4;     /* Sand/Cream */
+  --primary: #c85a3a; /* Terracotta */
+  --secondary: #a8d5ba; /* Sage */
+  --accent: #2d5a3d; /* Forest Green */
+  --background: #f9f7f4; /* Sand/Cream */
 }
 ```
 
 ### Adding New Pages
+
 1. Create component in `client/src/pages/`
 2. Import in `client/src/App.tsx`
 3. Add route in Router function
@@ -189,6 +225,7 @@ Edit CSS variables in `client/src/index.css`:
 ## 🚢 Deployment
 
 This project is optimized for deployment on Manus or any modern static hosting:
+
 - Vercel
 - Netlify
 - GitHub Pages
