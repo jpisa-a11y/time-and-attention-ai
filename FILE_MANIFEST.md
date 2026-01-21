@@ -11,13 +11,16 @@ Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI
 ```
 package.json                 # Project dependencies and scripts
 tsconfig.json               # TypeScript configuration
-tailwind.config.js          # Tailwind CSS configuration
-postcss.config.js           # PostCSS configuration
+tsconfig.node.json          # TypeScript configuration for Node.js
+vite.config.ts              # Vite build tool configuration
+components.json             # shadcn/ui component configuration
 .gitignore                  # Git ignore rules
 .prettierrc                  # Code formatting rules
 .prettierignore              # Prettier ignore rules
 README.md                    # Project documentation
+SETUP_GUIDE.md              # Detailed setup and development guide
 FILE_MANIFEST.md             # This file
+ideas.md                    # Design brainstorm and vision document
 ```
 
 ### Client Directory: `/client`
@@ -55,7 +58,8 @@ client/public/images/
 client/src/
   ├── main.tsx              # React entry point
   ├── App.tsx               # Main router and layout wrapper
-  └── index.css             # Global styles and design system
+  ├── index.css             # Global styles and design system
+  └── const.ts              # Client constants
 ```
 
 ##### Pages: `/client/src/pages`
@@ -65,6 +69,8 @@ client/src/pages/
   ├── Home.tsx              # Homepage with hero, vision, mission
   ├── HowItWorks.tsx        # Interactive 5-step qualification timeline
   ├── Mentors.tsx           # Licensed professionals spotlight
+  ├── FutureVision.tsx      # Future vision and possibilities
+  ├── Insights.tsx          # Insights and analysis
   └── NotFound.tsx          # 404 page
 ```
 
@@ -75,7 +81,7 @@ client/src/components/
   ├── ErrorBoundary.tsx     # Error boundary wrapper
   ├── ManusDialog.tsx       # Dialog component
   ├── Map.tsx               # Google Maps integration
-  └── ui/                   # shadcn/ui components (50+ files)
+  └── ui/                   # shadcn/ui components (53 files)
       ├── accordion.tsx
       ├── alert-dialog.tsx
       ├── alert.tsx
@@ -104,6 +110,7 @@ client/src/components/
       ├── input-otp.tsx
       ├── input.tsx
       ├── item.tsx
+      ├── kbd.tsx
       ├── label.tsx
       ├── menubar.tsx
       ├── navigation-menu.tsx
@@ -111,6 +118,7 @@ client/src/components/
       ├── popover.tsx
       ├── progress.tsx
       ├── radio-group.tsx
+      ├── resizable.tsx
       ├── scroll-area.tsx
       ├── select.tsx
       ├── separator.tsx
@@ -119,6 +127,7 @@ client/src/components/
       ├── skeleton.tsx
       ├── slider.tsx
       ├── sonner.tsx
+      ├── spinner.tsx
       ├── switch.tsx
       ├── table.tsx
       ├── tabs.tsx
@@ -133,6 +142,15 @@ client/src/components/
 ```
 client/src/contexts/
   └── ThemeContext.tsx      # Light/dark theme management
+```
+
+##### Hooks: `/client/src/hooks`
+
+```
+client/src/hooks/
+  ├── useComposition.ts     # Composition hook utility
+  ├── useMobile.tsx         # Mobile detection hook
+  └── usePersistFn.ts       # Persistent function reference hook
 ```
 
 ##### Utilities: `/client/src/lib`
@@ -156,7 +174,31 @@ shared/
   └── const.ts              # Shared constants
 ```
 
+### Patches Directory: `/patches`
+
+```
+patches/
+  └── wouter@3.7.1.patch    # Custom patch for wouter routing library
+```
+
 ## Key Files Explained
+
+### Setup Guide: `SETUP_GUIDE.md`
+
+- Comprehensive development guide
+- Installation instructions
+- Deployment workflows
+- Customization tutorials
+- Troubleshooting tips
+- Code style guidelines
+
+### Design Brainstorm: `ideas.md`
+
+- Design system exploration
+- Three design movement options analyzed
+- Selected design direction: Organic Authenticity with Purpose
+- Color philosophy and typography decisions
+- Content pillars and messaging strategy
 
 ### Design System: `client/src/index.css`
 
@@ -210,6 +252,18 @@ shared/
 - Team philosophy section
 - Key values highlighting
 
+### Future Vision: `client/src/pages/FutureVision.tsx`
+
+- Vision for the future of AI and humanity
+- Exploration of possibilities and potential
+- Long-term goals and aspirations
+
+### Insights: `client/src/pages/Insights.tsx`
+
+- Analysis and insights
+- Data-driven perspectives
+- Thought leadership content
+
 ## Technology Stack
 
 ### Frontend Framework
@@ -231,7 +285,7 @@ shared/
 ### UI Components
 
 - shadcn/ui (Radix UI primitives)
-- 50+ pre-built accessible components
+- 53 pre-built accessible components
 
 ### Icons & Graphics
 
@@ -253,11 +307,16 @@ shared/
 - Class Variance Authority 0.7.1
 - clsx 2.1.1
 
+### Package Manager
+
+- pnpm 10.15.1 (with patches support)
+
 ### Development Tools
 
 - TypeScript
 - Prettier 3.6.2
 - ESBuild 0.25.0
+- pnpm 10.15.1
 
 ## Build & Deployment
 
@@ -364,6 +423,18 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 6. Key values
 7. Call-to-action
 8. Footer
+
+### Future Vision Sections
+
+- Vision for AI and humanity's future
+- Exploration of possibilities
+- Long-term strategic goals
+
+### Insights Sections
+
+- Analysis and data-driven insights
+- Thought leadership content
+- Industry perspectives
 
 ## Responsive Design
 

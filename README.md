@@ -14,12 +14,14 @@ client/
     images/          # Custom generated illustrations
   src/
     pages/
-      Home.tsx       # Hero page with Joseph Pisa's vision
-      HowItWorks.tsx # Interactive 5-step AI qualification timeline
-      Mentors.tsx    # Licensed professionals spotlight
-    components/      # Reusable UI components
-    App.tsx          # Main router and layout
-    index.css        # Design system (Organic Authenticity)
+      Home.tsx         # Hero page with Joseph Pisa's vision
+      HowItWorks.tsx   # Interactive 5-step AI qualification timeline
+      Mentors.tsx      # Licensed professionals spotlight
+      FutureVision.tsx # Joseph Pisa's transformative AI possibilities
+      Insights.tsx     # Essays on AI, time, and human potential
+    components/        # Reusable UI components
+    App.tsx            # Main router and layout
+    index.css          # Design system (Organic Authenticity)
 ```
 
 ## 🎨 Design System: Organic Authenticity with Purpose
@@ -67,6 +69,29 @@ client/
 - Expertise areas and personal philosophies
 - "Why Human Oversight Matters" section
 - Team philosophy and collective values
+
+### 4. **Future Vision** (`/future-vision`)
+
+- Letter from Joseph Pisa on the transformative possibilities of AI
+- Exploration of AI's potential to revolutionize human existence
+- Vision sections covering:
+  - Universal Financial Liberation
+  - Complete transformation of work-life paradigm
+  - AI serving humanity's highest aspirations
+- Bold examination of societal transformation through AI
+- Personal philosophy on technology and human flourishing
+
+### 5. **Insights** (`/insights`)
+
+- Collection of thought-provoking essays by Joseph Pisa
+- Key articles include:
+  - "Why Time is the New Currency"
+  - "The Beautiful Paradox: Less Stress, More Productivity"
+  - "Why I'm Building a Non-Profit in a Capitalist World"
+  - "The Three Questions That Changed Everything"
+- Read time estimates for each article
+- Deep exploration of AI, time, human values, and societal transformation
+- Personal reflections on building Time & Attention
 
 ## 🚀 Getting Started
 

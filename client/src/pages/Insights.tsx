@@ -7,6 +7,23 @@ import { BookOpen, Calendar, Clock, ArrowRight } from "lucide-react";
  * AI, human values, and societal transformation.
  */
 
+// Average reading speed in words per minute
+const WORDS_PER_MINUTE = 200;
+
+/**
+ * Calculate read time based on word count
+ * Uses industry-standard average reading speed of 200 words per minute
+ */
+function calculateReadTime(content: string[]): string {
+  const totalWords = content.reduce((count, paragraph) => {
+    const words = paragraph.match(/\S+/g);
+    return count + (words ? words.length : 0);
+  }, 0);
+  
+  const minutes = Math.ceil(totalWords / WORDS_PER_MINUTE);
+  return `${minutes} min read`;
+}
+
 export default function Insights() {
   const insights = [
     {
@@ -15,6 +32,7 @@ export default function Insights() {
       readTime: "8 min read",
       excerpt:
         "For centuries, we've measured wealth in money, land, and possessions. But the true currency of a meaningful life has always been time—and AI is about to make us all rich.",
+      excerpt: "For centuries, we've measured wealth in money, land, and possessions. But the true currency of a meaningful life has always been time—and AI is about to make us all rich.",
       content: [
         "I remember the moment it hit me. I was sitting in my office, drowning in paperwork, missing my daughter's school play for the third time that month. I had money in the bank, a successful career, all the traditional markers of 'making it.' But I was bankrupt where it mattered most: time.",
         "We've built a society that worships material wealth while systematically stealing our most precious resource. We trade hours of our finite lives for dollars, then spend those dollars trying to buy back moments we can never recover. It's an absurd transaction, yet we've normalized it completely.",
@@ -35,6 +53,7 @@ export default function Insights() {
       readTime: "6 min read",
       excerpt:
         "How can AI make life both less stressful AND more productive? It seems contradictory, but it's the key to everything we're building.",
+      excerpt: "How can AI make life both less stressful AND more productive? It seems contradictory, but it's the key to everything we're building.",
       content: [
         "People look at me skeptically when I say AI will make life less stressful and more productive simultaneously. They think I'm selling snake oil. 'Pick one,' they say. 'You can't have both.'",
         "But they're wrong. And the reason they're wrong reveals everything that's broken about how we think about productivity.",
@@ -59,6 +78,7 @@ export default function Insights() {
       readTime: "10 min read",
       excerpt:
         "People think I'm crazy for building a non-profit AI company. They're right to be skeptical. Here's why I'm doing it anyway—and why it might be the only viable path forward.",
+      excerpt: "People think I'm crazy for building a non-profit AI company. They're right to be skeptical. Here's why I'm doing it anyway—and why it might be the only viable path forward.",
       content: [
         "Let me be clear: I believe in markets. I believe in entrepreneurship. I've spent my career building businesses, creating value, serving customers. I'm not anti-capitalist.",
         "But I've also watched capitalism eat itself. I've seen companies optimize for quarterly earnings at the expense of long-term value. I've watched industries consolidate until innovation dies. I've witnessed the relentless pursuit of profit destroy communities, relationships, and lives.",
@@ -87,6 +107,7 @@ export default function Insights() {
       readTime: "7 min read",
       excerpt:
         "Three simple questions led me to found Time & Attention. They might change your life too.",
+      excerpt: "Three simple questions led me to found Time & Attention. They might change your life too.",
       content: [
         "I was successful by every conventional measure. Good income, growing business, respect in my industry. But I was miserable. And I couldn't figure out why.",
         "Then one sleepless night, I asked myself three questions. They seemed simple at the time. Looking back, they were the most important questions of my life.",
@@ -209,7 +230,7 @@ export default function Insights() {
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
-                {insights[0].readTime}
+                {calculateReadTime(insights[0].content)}
               </div>
             </div>
             <p className="text-lg leading-relaxed mb-8 opacity-95">
@@ -247,7 +268,7 @@ export default function Insights() {
                         </div>
                         <div className="flex items-center gap-2">
                           <Clock className="w-4 h-4" />
-                          {insight.readTime}
+                          {calculateReadTime(insight.content)}
                         </div>
                         <div className="font-semibold text-[#c85a3a]">
                           By {insight.author}
