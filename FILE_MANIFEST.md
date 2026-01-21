@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI vision with three main pages and custom design system.
+Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI vision with a single-page design and custom design system.
 
 ## Directory Structure
 
@@ -11,8 +11,8 @@ Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI
 ```
 package.json                 # Project dependencies and scripts
 tsconfig.json               # TypeScript configuration
-tsconfig.node.json          # TypeScript configuration for Node.js
-vite.config.ts              # Vite build tool configuration
+tsconfig.node.json          # TypeScript Node configuration
+vite.config.ts              # Vite build configuration
 components.json             # shadcn/ui component configuration
 .gitignore                  # Git ignore rules
 .prettierrc                  # Code formatting rules
@@ -38,16 +38,7 @@ client/public/images/
   ├── hero-ai-liberation.jpg           # Hero section illustration
   ├── pay-it-forward-cycle.jpg         # Vision cycle illustration
   ├── ai-mentor-connection.jpg         # AI mentorship illustration
-  ├── time-reclaimed.jpg               # Benefits illustration
-  ├── step1-document-upload.jpg        # How It Works step 1
-  ├── step2-ai-analysis.jpg            # How It Works step 2
-  ├── step3-human-review.jpg           # How It Works step 3
-  ├── step4-approval.jpg               # How It Works step 4
-  ├── step5-closing.jpg                # How It Works step 5
-  ├── mentor-sarah-chen.jpg            # Sarah Chen portrait
-  ├── mentor-james-rodriguez.jpg       # James Rodriguez portrait
-  ├── mentor-priya-patel.jpg           # Priya Patel portrait
-  └── mentor-michael-torres.jpg        # Michael Torres portrait
+  └── time-reclaimed.jpg               # Benefits illustration
 ```
 
 #### Source Code: `/client/src`
@@ -67,10 +58,6 @@ client/src/
 ```
 client/src/pages/
   ├── Home.tsx              # Homepage with hero, vision, mission
-  ├── HowItWorks.tsx        # Interactive 5-step qualification timeline
-  ├── Mentors.tsx           # Licensed professionals spotlight
-  ├── FutureVision.tsx      # Future vision and possibilities
-  ├── Insights.tsx          # Insights and analysis
   └── NotFound.tsx          # 404 page
 ```
 
@@ -212,7 +199,7 @@ patches/
 ### Router: `client/src/App.tsx`
 
 - Wouter-based client-side routing
-- Three main routes: `/`, `/how-it-works`, `/mentors`
+- Main route: `/` (homepage)
 - ThemeProvider wrapper
 - Error boundary
 - Toast notifications (Sonner)
@@ -228,41 +215,6 @@ patches/
 - Beautiful paradox explanation
 - Call-to-action
 - Footer with links
-
-### How It Works: `client/src/pages/HowItWorks.tsx`
-
-- 5-step interactive timeline
-- Expandable step cards
-- Overview stats section
-- Key principles explanation
-- FAQ section
-- Fully responsive design
-
-### Mentors: `client/src/pages/Mentors.tsx`
-
-- Four licensed professional profiles
-  - Sarah Chen (Mortgage Banker)
-  - James Rodriguez (Financial Planner)
-  - Priya Patel (Attorney)
-  - Michael Torres (Credit Counselor)
-- Professional portraits
-- Credentials and experience
-- Expertise areas
-- Personal philosophies
-- Team philosophy section
-- Key values highlighting
-
-### Future Vision: `client/src/pages/FutureVision.tsx`
-
-- Vision for the future of AI and humanity
-- Exploration of possibilities and potential
-- Long-term goals and aspirations
-
-### Insights: `client/src/pages/Insights.tsx`
-
-- Analysis and insights
-- Data-driven perspectives
-- Thought leadership content
 
 ## Technology Stack
 
@@ -377,15 +329,6 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 2. **pay-it-forward-cycle.jpg** - Circular flow of helping others
 3. **ai-mentor-connection.jpg** - Human and AI working together
 4. **time-reclaimed.jpg** - Benefits of freed-up time
-5. **step1-document-upload.jpg** - Document upload process
-6. **step2-ai-analysis.jpg** - AI analyzing documents
-7. **step3-human-review.jpg** - Human expert review
-8. **step4-approval.jpg** - Fast approval notification
-9. **step5-closing.jpg** - Smooth closing process
-10. **mentor-sarah-chen.jpg** - Mortgage banker portrait
-11. **mentor-james-rodriguez.jpg** - Financial planner portrait
-12. **mentor-priya-patel.jpg** - Attorney portrait
-13. **mentor-michael-torres.jpg** - Credit counselor portrait
 
 ## Content Structure
 
@@ -401,40 +344,6 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 8. The beautiful paradox
 9. Call-to-action
 10. Footer
-
-### How It Works Sections
-
-1. Navigation bar
-2. Hero section
-3. Why human oversight matters
-4. Interactive 5-step timeline
-5. Overview stats
-6. Key principles
-7. FAQ
-8. Footer
-
-### Mentors Sections
-
-1. Navigation bar
-2. Hero section
-3. Why human expertise matters (4 benefits)
-4. Mentor spotlight cards (4 mentors)
-5. Team philosophy
-6. Key values
-7. Call-to-action
-8. Footer
-
-### Future Vision Sections
-
-- Vision for AI and humanity's future
-- Exploration of possibilities
-- Long-term strategic goals
-
-### Insights Sections
-
-- Analysis and data-driven insights
-- Thought leadership content
-- Industry perspectives
 
 ## Responsive Design
 

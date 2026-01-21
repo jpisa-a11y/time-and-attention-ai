@@ -15,10 +15,7 @@ client/
   src/
     pages/
       Home.tsx         # Hero page with Joseph Pisa's vision
-      HowItWorks.tsx   # Interactive 5-step AI qualification timeline
-      Mentors.tsx      # Licensed professionals spotlight
-      FutureVision.tsx # Joseph Pisa's transformative AI possibilities
-      Insights.tsx     # Essays on AI, time, and human potential
+      NotFound.tsx     # 404 page
     components/        # Reusable UI components
     App.tsx            # Main router and layout
     index.css          # Design system (Organic Authenticity)
@@ -34,7 +31,7 @@ client/
 
 ## 📄 Pages
 
-### 1. **Home** (`/`)
+### **Home** (`/`)
 
 - Hero section introducing Joseph Pisa's vision
 - Problem statement highlighting modern life's fragmentation
@@ -44,54 +41,6 @@ client/
 - Mission & Values
 - The Beautiful Paradox explained
 - Call-to-action
-
-### 2. **How It Works** (`/how-it-works`)
-
-- Interactive 5-step timeline:
-  1. Document Upload
-  2. AI Analysis & Processing
-  3. Human Expert Review
-  4. Fast Approval
-  5. Smooth Closing
-- Expandable step cards with detailed information
-- Overview stats (24-48 hours, Bank-level security, AI + Human, 100% Transparent)
-- Key principles section
-- FAQ addressing common concerns
-
-### 3. **Mentors** (`/mentors`)
-
-- Four licensed professionals:
-  - **Sarah Chen**: Licensed Mortgage Banker & Financial Advisor
-  - **James Rodriguez**: Certified Financial Planner & Real Estate Expert
-  - **Priya Patel**: Licensed Attorney, Real Estate Law & Consumer Protection
-  - **Michael Torres**: Certified Credit Counselor & Debt Management Specialist
-- Professional portraits and detailed profiles
-- Expertise areas and personal philosophies
-- "Why Human Oversight Matters" section
-- Team philosophy and collective values
-
-### 4. **Future Vision** (`/future-vision`)
-
-- Letter from Joseph Pisa on the transformative possibilities of AI
-- Exploration of AI's potential to revolutionize human existence
-- Vision sections covering:
-  - Universal Financial Liberation
-  - Complete transformation of work-life paradigm
-  - AI serving humanity's highest aspirations
-- Bold examination of societal transformation through AI
-- Personal philosophy on technology and human flourishing
-
-### 5. **Insights** (`/insights`)
-
-- Collection of thought-provoking essays by Joseph Pisa
-- Key articles include:
-  - "Why Time is the New Currency"
-  - "The Beautiful Paradox: Less Stress, More Productivity"
-  - "Why I'm Building a Non-Profit in a Capitalist World"
-  - "The Three Questions That Changed Everything"
-- Read time estimates for each article
-- Deep exploration of AI, time, human values, and societal transformation
-- Personal reflections on building Time & Attention
 
 ## 🚀 Getting Started
 
@@ -115,6 +64,22 @@ pnpm dev
 ```
 
 The site will be available at `http://localhost:3000`
+
+### Development Scripts
+
+```bash
+# Run linting
+pnpm lint
+
+# Run linting with auto-fix
+pnpm lint:fix
+
+# Format code with Prettier
+pnpm format
+
+# Type checking
+pnpm check
+```
 
 ### Build for Production
 
@@ -144,9 +109,7 @@ pnpm start
 
 ## 🎯 Core Features
 
-✅ **Multi-page responsive website** with smooth navigation
-✅ **Interactive timeline** with expandable cards
-✅ **Professional mentor profiles** with custom illustrations
+✅ **Single-page responsive website** with smooth navigation
 ✅ **Organic Authenticity design system** throughout
 ✅ **Mobile-first responsive design**
 ✅ **Accessibility-first approach** (WCAG compliant)
@@ -161,8 +124,6 @@ The site features custom watercolor illustrations generated specifically for the
 - Pay It Forward Cycle
 - AI Mentor Connection
 - Time Reclaimed
-- 5-step process illustrations
-- 4 mentor professional portraits
 
 ## 📝 Content Highlights
 

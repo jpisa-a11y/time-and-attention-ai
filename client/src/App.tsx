@@ -5,20 +5,11 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import HowItWorks from "./pages/HowItWorks";
-import Mentors from "./pages/Mentors";
-import FutureVision from "./pages/FutureVision";
-import Insights from "./pages/Insights";
-
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
-      <Route path={"/how-it-works"} component={HowItWorks} />
-      <Route path={"/mentors"} component={Mentors} />
-      <Route path={"/future-vision"} component={FutureVision} />
-      <Route path={"/insights"} component={Insights} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -34,9 +25,7 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />
