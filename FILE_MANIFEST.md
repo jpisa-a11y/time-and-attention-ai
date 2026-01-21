@@ -1,31 +1,38 @@
 # File Manifest: Time & Attention AI Website
 
 ## Project Overview
+
 Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI vision with three main pages and custom design system.
 
 ## Directory Structure
 
 ### Root Configuration Files
+
 ```
 package.json                 # Project dependencies and scripts
 tsconfig.json               # TypeScript configuration
-tailwind.config.js          # Tailwind CSS configuration
-postcss.config.js           # PostCSS configuration
+tsconfig.node.json          # TypeScript configuration for Node.js
+vite.config.ts              # Vite build tool configuration
+components.json             # shadcn/ui component configuration
 .gitignore                  # Git ignore rules
 .prettierrc                  # Code formatting rules
 .prettierignore              # Prettier ignore rules
 README.md                    # Project documentation
+SETUP_GUIDE.md              # Detailed setup and development guide
 FILE_MANIFEST.md             # This file
+ideas.md                    # Design brainstorm and vision document
 ```
 
 ### Client Directory: `/client`
 
 #### HTML Entry Point
+
 ```
 client/index.html           # Main HTML file with Google Fonts imports
 ```
 
 #### Public Assets: `/client/public`
+
 ```
 client/public/images/
   ├── hero-ai-liberation.jpg           # Hero section illustration
@@ -46,29 +53,35 @@ client/public/images/
 #### Source Code: `/client/src`
 
 ##### Main Application Files
+
 ```
 client/src/
   ├── main.tsx              # React entry point
   ├── App.tsx               # Main router and layout wrapper
-  └── index.css             # Global styles and design system
+  ├── index.css             # Global styles and design system
+  └── const.ts              # Client constants
 ```
 
 ##### Pages: `/client/src/pages`
+
 ```
 client/src/pages/
   ├── Home.tsx              # Homepage with hero, vision, mission
   ├── HowItWorks.tsx        # Interactive 5-step qualification timeline
   ├── Mentors.tsx           # Licensed professionals spotlight
+  ├── FutureVision.tsx      # Future vision and possibilities
+  ├── Insights.tsx          # Insights and analysis
   └── NotFound.tsx          # 404 page
 ```
 
 ##### Components: `/client/src/components`
+
 ```
 client/src/components/
   ├── ErrorBoundary.tsx     # Error boundary wrapper
   ├── ManusDialog.tsx       # Dialog component
   ├── Map.tsx               # Google Maps integration
-  └── ui/                   # shadcn/ui components (50+ files)
+  └── ui/                   # shadcn/ui components (53 files)
       ├── accordion.tsx
       ├── alert-dialog.tsx
       ├── alert.tsx
@@ -97,6 +110,7 @@ client/src/components/
       ├── input-otp.tsx
       ├── input.tsx
       ├── item.tsx
+      ├── kbd.tsx
       ├── label.tsx
       ├── menubar.tsx
       ├── navigation-menu.tsx
@@ -104,6 +118,7 @@ client/src/components/
       ├── popover.tsx
       ├── progress.tsx
       ├── radio-group.tsx
+      ├── resizable.tsx
       ├── scroll-area.tsx
       ├── select.tsx
       ├── separator.tsx
@@ -112,6 +127,7 @@ client/src/components/
       ├── skeleton.tsx
       ├── slider.tsx
       ├── sonner.tsx
+      ├── spinner.tsx
       ├── switch.tsx
       ├── table.tsx
       ├── tabs.tsx
@@ -122,32 +138,70 @@ client/src/components/
 ```
 
 ##### Contexts: `/client/src/contexts`
+
 ```
 client/src/contexts/
   └── ThemeContext.tsx      # Light/dark theme management
 ```
 
+##### Hooks: `/client/src/hooks`
+
+```
+client/src/hooks/
+  ├── useComposition.ts     # Composition hook utility
+  ├── useMobile.tsx         # Mobile detection hook
+  └── usePersistFn.ts       # Persistent function reference hook
+```
+
 ##### Utilities: `/client/src/lib`
+
 ```
 client/src/lib/
   └── utils.ts              # Utility functions (cn, classname merging)
 ```
 
 ### Server Directory: `/server`
+
 ```
 server/
   └── index.ts              # Express server for production
 ```
 
 ### Shared Directory: `/shared`
+
 ```
 shared/
   └── const.ts              # Shared constants
 ```
 
+### Patches Directory: `/patches`
+
+```
+patches/
+  └── wouter@3.7.1.patch    # Custom patch for wouter routing library
+```
+
 ## Key Files Explained
 
+### Setup Guide: `SETUP_GUIDE.md`
+
+- Comprehensive development guide
+- Installation instructions
+- Deployment workflows
+- Customization tutorials
+- Troubleshooting tips
+- Code style guidelines
+
+### Design Brainstorm: `ideas.md`
+
+- Design system exploration
+- Three design movement options analyzed
+- Selected design direction: Organic Authenticity with Purpose
+- Color philosophy and typography decisions
+- Content pillars and messaging strategy
+
 ### Design System: `client/src/index.css`
+
 - Tailwind CSS 4 configuration
 - Custom CSS variables for colors
 - Typography system setup
@@ -156,6 +210,7 @@ shared/
 - Color palette: Terracotta, Sage, Forest Green, Sand
 
 ### Router: `client/src/App.tsx`
+
 - Wouter-based client-side routing
 - Three main routes: `/`, `/how-it-works`, `/mentors`
 - ThemeProvider wrapper
@@ -163,6 +218,7 @@ shared/
 - Toast notifications (Sonner)
 
 ### Homepage: `client/src/pages/Home.tsx`
+
 - Hero section with custom illustration
 - Joseph Pisa's vision explanation
 - Problem statement
@@ -174,6 +230,7 @@ shared/
 - Footer with links
 
 ### How It Works: `client/src/pages/HowItWorks.tsx`
+
 - 5-step interactive timeline
 - Expandable step cards
 - Overview stats section
@@ -182,6 +239,7 @@ shared/
 - Fully responsive design
 
 ### Mentors: `client/src/pages/Mentors.tsx`
+
 - Four licensed professional profiles
   - Sarah Chen (Mortgage Banker)
   - James Rodriguez (Financial Planner)
@@ -194,54 +252,82 @@ shared/
 - Team philosophy section
 - Key values highlighting
 
+### Future Vision: `client/src/pages/FutureVision.tsx`
+
+- Vision for the future of AI and humanity
+- Exploration of possibilities and potential
+- Long-term goals and aspirations
+
+### Insights: `client/src/pages/Insights.tsx`
+
+- Analysis and insights
+- Data-driven perspectives
+- Thought leadership content
+
 ## Technology Stack
 
 ### Frontend Framework
+
 - React 19.2.1
 - TypeScript 5.6.3
 - Vite 7.1.7 (build tool)
 
 ### Styling
+
 - Tailwind CSS 4.1.14
 - PostCSS 8.4.47
 - Custom CSS variables
 
 ### Routing
+
 - Wouter 3.3.5 (lightweight client-side router)
 
 ### UI Components
+
 - shadcn/ui (Radix UI primitives)
-- 50+ pre-built accessible components
+- 53 pre-built accessible components
 
 ### Icons & Graphics
+
 - Lucide React 0.453.0 (icon library)
 - Custom watercolor illustrations (AI-generated)
 
 ### Animations
+
 - Framer Motion 12.23.22
 
 ### Forms & Validation
+
 - React Hook Form 7.64.0
 - Zod 4.1.12 (schema validation)
 
 ### Utilities
+
 - Tailwind Merge 3.3.1
 - Class Variance Authority 0.7.1
 - clsx 2.1.1
 
+### Package Manager
+
+- pnpm 10.15.1 (with patches support)
+
 ### Development Tools
+
 - TypeScript
 - Prettier 3.6.2
 - ESBuild 0.25.0
+- pnpm 10.15.1
 
 ## Build & Deployment
 
 ### Development
+
 ```bash
 pnpm dev          # Start dev server on port 3000
 ```
 
 ### Production
+
 ```bash
 pnpm build        # Build for production
 pnpm start        # Start production server
@@ -249,6 +335,7 @@ pnpm preview      # Preview production build
 ```
 
 ### Code Quality
+
 ```bash
 pnpm check        # TypeScript type checking
 pnpm format       # Format code with Prettier
@@ -257,22 +344,26 @@ pnpm format       # Format code with Prettier
 ## Design System Details
 
 ### Colors (OKLCH Format)
+
 - Primary (Terracotta): #c85a3a
 - Secondary (Sage): #a8d5ba
 - Accent (Forest Green): #2d5a3d
 - Background (Sand): #e8dcc8 / #f9f7f4
 
 ### Typography
+
 - Headlines: Cormorant Garamond (serif)
 - Body: Lato (sans-serif)
 - Loaded via Google Fonts
 
 ### Spacing System
+
 - Base unit: 1rem (16px)
 - Responsive padding: 1rem (mobile) → 1.5rem (tablet) → 2rem (desktop)
 - Generous whitespace for organic feel
 
 ### Border Radius
+
 - Small: calc(var(--radius) - 4px)
 - Medium: calc(var(--radius) - 2px)
 - Large: var(--radius)
@@ -299,6 +390,7 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 ## Content Structure
 
 ### Homepage Sections
+
 1. Navigation bar (sticky)
 2. Hero section
 3. Problem statement (3 challenges)
@@ -311,6 +403,7 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 10. Footer
 
 ### How It Works Sections
+
 1. Navigation bar
 2. Hero section
 3. Why human oversight matters
@@ -321,6 +414,7 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 8. Footer
 
 ### Mentors Sections
+
 1. Navigation bar
 2. Hero section
 3. Why human expertise matters (4 benefits)
@@ -329,6 +423,18 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 6. Key values
 7. Call-to-action
 8. Footer
+
+### Future Vision Sections
+
+- Vision for AI and humanity's future
+- Exploration of possibilities
+- Long-term strategic goals
+
+### Insights Sections
+
+- Analysis and data-driven insights
+- Thought leadership content
+- Industry perspectives
 
 ## Responsive Design
 
@@ -383,6 +489,7 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 ## Git History
 
 All development work is tracked in git with meaningful commit messages documenting:
+
 - Initial project setup
 - Design system implementation
 - Homepage development

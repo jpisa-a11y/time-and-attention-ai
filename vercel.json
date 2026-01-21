@@ -1,0 +1,98 @@
+{
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install",
+  "framework": "vite",
+  "outputDirectory": "dist",
+  "nodeVersion": "22.13.0",
+  "env": {
+    "NODE_ENV": "production",
+    "VITE_APP_TITLE": "@Time & Attention",
+    "VITE_APP_LOGO": "@/logo.png",
+    "VITE_APP_ID": "@time-and-attention-ai",
+    "VITE_BUILD_TARGET": "@es2020",
+    "VITE_BUILD_MINIFY": "@true"
+  },
+  "envTargets": ["production", "preview", "development"],
+  "buildEnv": [
+    "NODE_ENV",
+    "VITE_APP_TITLE",
+    "VITE_APP_LOGO",
+    "VITE_APP_ID",
+    "VITE_ANALYTICS_WEBSITE_ID",
+    "VITE_ANALYTICS_ENDPOINT",
+    "VITE_API_URL",
+    "VITE_APP_URL",
+    "VITE_FRONTEND_FORGE_API_URL",
+    "VITE_FRONTEND_FORGE_API_KEY",
+    "VITE_OAUTH_PORTAL_URL",
+    "VITE_STRIPE_PUBLIC_KEY",
+    "VITE_BUILD_TARGET",
+    "VITE_BUILD_MINIFY"
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=()"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/old-home",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "regions": ["sfo1"],
+  "functions": {
+    "api/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
+}
