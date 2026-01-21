@@ -61,14 +61,10 @@ pnpm format
 time-and-attention-ai/
 ├── client/                          # Frontend application
 │   ├── public/
-│   │   └── images/                 # Custom illustrations and portraits
+│   │   └── images/                 # Custom illustrations
 │   ├── src/
 │   │   ├── pages/                  # Page components
 │   │   │   ├── Home.tsx            # Homepage
-│   │   │   ├── HowItWorks.tsx       # How It Works page
-│   │   │   ├── Mentors.tsx          # Mentors page
-│   │   │   ├── FutureVision.tsx     # Future Vision page
-│   │   │   ├── Insights.tsx         # Insights page
 │   │   │   └── NotFound.tsx         # 404 page
 │   │   ├── components/             # Reusable components
 │   │   │   └── ui/                 # shadcn/ui components
@@ -233,10 +229,6 @@ Then update `client/src/index.css` to use the new font.
 Edit the respective page files:
 
 - Homepage: `client/src/pages/Home.tsx`
-- How It Works: `client/src/pages/HowItWorks.tsx`
-- Mentors: `client/src/pages/Mentors.tsx`
-- Future Vision: `client/src/pages/FutureVision.tsx`
-- Insights: `client/src/pages/Insights.tsx`
 
 ## Deployment
 

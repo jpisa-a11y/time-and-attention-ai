@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { ArrowRight, Heart, Zap, Users, Globe } from "lucide-react";
 
 /**
@@ -38,29 +37,6 @@ export default function Home() {
             </a>
             <a href="#mission" className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors">
               Mission
-            <a
-              href="/how-it-works"
-              className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors"
-            >
-              How It Works
-            </a>
-            <a
-              href="/mentors"
-              className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors"
-            >
-              Mentors
-            </a>
-            <a
-              href="/future-vision"
-              className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors"
-            >
-              Future Vision
-            </a>
-            <a
-              href="/insights"
-              className="text-[#2a2a2a] hover:text-[#c85a3a] transition-colors"
-            >
-              Insights
             </a>
             <button className="px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 active:scale-95 bg-[#c85a3a] text-white hover:bg-[#b84a2a]">
               Join Us
