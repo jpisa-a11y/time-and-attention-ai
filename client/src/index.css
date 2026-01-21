@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -48,7 +52,7 @@
   /* Secondary: Sage (#a8d5ba) - growth, healing */
   /* Accent: Forest Green (#2d5a3d) - pay it forward, community */
   /* Background: Sand (#e8dcc8) - foundation, stability */
-  
+
   --primary: #c85a3a;
   --primary-foreground: #f9f7f4;
   --sidebar-primary: #c85a3a;
@@ -94,11 +98,16 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: "Cormorant Garamond", serif;
   }
   h1 {
     @apply text-5xl md:text-6xl tracking-tight;
@@ -192,6 +201,4 @@
   .bg-cream {
     @apply bg-[#f9f7f4];
   }
-
-
 }

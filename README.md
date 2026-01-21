@@ -14,12 +14,11 @@ client/
     images/          # Custom generated illustrations
   src/
     pages/
-      Home.tsx       # Hero page with Joseph Pisa's vision
-      HowItWorks.tsx # Interactive 5-step AI qualification timeline
-      Mentors.tsx    # Licensed professionals spotlight
-    components/      # Reusable UI components
-    App.tsx          # Main router and layout
-    index.css        # Design system (Organic Authenticity)
+      Home.tsx         # Hero page with Joseph Pisa's vision
+      NotFound.tsx     # 404 page
+    components/        # Reusable UI components
+    App.tsx            # Main router and layout
+    index.css          # Design system (Organic Authenticity)
 ```
 
 ## 🎨 Design System: Organic Authenticity with Purpose
@@ -32,7 +31,8 @@ client/
 
 ## 📄 Pages
 
-### 1. **Home** (`/`)
+### **Home** (`/`)
+
 - Hero section introducing Joseph Pisa's vision
 - Problem statement highlighting modern life's fragmentation
 - Vision explanation of the "pay it forward" model
@@ -42,32 +42,10 @@ client/
 - The Beautiful Paradox explained
 - Call-to-action
 
-### 2. **How It Works** (`/how-it-works`)
-- Interactive 5-step timeline:
-  1. Document Upload
-  2. AI Analysis & Processing
-  3. Human Expert Review
-  4. Fast Approval
-  5. Smooth Closing
-- Expandable step cards with detailed information
-- Overview stats (24-48 hours, Bank-level security, AI + Human, 100% Transparent)
-- Key principles section
-- FAQ addressing common concerns
-
-### 3. **Mentors** (`/mentors`)
-- Four licensed professionals:
-  - **Sarah Chen**: Licensed Mortgage Banker & Financial Advisor
-  - **James Rodriguez**: Certified Financial Planner & Real Estate Expert
-  - **Priya Patel**: Licensed Attorney, Real Estate Law & Consumer Protection
-  - **Michael Torres**: Certified Credit Counselor & Debt Management Specialist
-- Professional portraits and detailed profiles
-- Expertise areas and personal philosophies
-- "Why Human Oversight Matters" section
-- Team philosophy and collective values
-
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 22.13.0+
 - pnpm 10.4.1+
 
@@ -86,6 +64,22 @@ pnpm dev
 ```
 
 The site will be available at `http://localhost:3000`
+
+### Development Scripts
+
+```bash
+# Run linting
+pnpm lint
+
+# Run linting with auto-fix
+pnpm lint:fix
+
+# Format code with Prettier
+pnpm format
+
+# Type checking
+pnpm check
+```
 
 ### Build for Production
 
@@ -115,9 +109,7 @@ pnpm start
 
 ## 🎯 Core Features
 
-✅ **Multi-page responsive website** with smooth navigation
-✅ **Interactive timeline** with expandable cards
-✅ **Professional mentor profiles** with custom illustrations
+✅ **Single-page responsive website** with smooth navigation
 ✅ **Organic Authenticity design system** throughout
 ✅ **Mobile-first responsive design**
 ✅ **Accessibility-first approach** (WCAG compliant)
@@ -127,20 +119,22 @@ pnpm start
 ## 🌐 Custom Illustrations
 
 The site features custom watercolor illustrations generated specifically for the design:
+
 - Hero AI Liberation illustration
 - Pay It Forward Cycle
 - AI Mentor Connection
 - Time Reclaimed
-- 5-step process illustrations
-- 4 mentor professional portraits
 
 ## 📝 Content Highlights
 
 ### The Beautiful Paradox
+
 > "AI makes it possible to live a less stressful life and be just as or more productive while increasing efficiency in all sectors of life, allowing for balance between work and family and self-life in the new world of AI."
 
 ### Core Mission
+
 Build a world where:
+
 - AI serves humanity's highest aspirations
 - Time and attention are valued above material accumulation
 - Technology enables a less stressful, more balanced life
@@ -149,17 +143,20 @@ Build a world where:
 ## 🔧 Customization
 
 ### Changing Colors
+
 Edit CSS variables in `client/src/index.css`:
+
 ```css
 :root {
-  --primary: #c85a3a;        /* Terracotta */
-  --secondary: #a8d5ba;      /* Sage */
-  --accent: #2d5a3d;         /* Forest Green */
-  --background: #f9f7f4;     /* Sand/Cream */
+  --primary: #c85a3a; /* Terracotta */
+  --secondary: #a8d5ba; /* Sage */
+  --accent: #2d5a3d; /* Forest Green */
+  --background: #f9f7f4; /* Sand/Cream */
 }
 ```
 
 ### Adding New Pages
+
 1. Create component in `client/src/pages/`
 2. Import in `client/src/App.tsx`
 3. Add route in Router function
@@ -189,6 +186,7 @@ Edit CSS variables in `client/src/index.css`:
 ## 🚢 Deployment
 
 This project is optimized for deployment on Manus or any modern static hosting:
+
 - Vercel
 - Netlify
 - GitHub Pages
