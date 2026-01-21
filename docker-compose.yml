@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # Main Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: production
+    container_name: time-and-attention-ai
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      VITE_APP_TITLE: "Time & Attention"
+      VITE_APP_LOGO: "/logo.png"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+    networks:
+      - app-network
+    volumes:
+      - ./dist:/app/dist:ro
+    labels:
+      - "com.example.description=Time & Attention AI Application"
+
+  # Nginx Reverse Proxy (Optional)
+  nginx:
+    image: nginx:alpine
+    container_name: time-and-attention-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - app
+    restart: unless-stopped
+    networks:
+      - app-network
+    labels:
+      - "com.example.description=Nginx Reverse Proxy"
+
+  # Redis Cache (Optional)
+  redis:
+    image: redis:7-alpine
+    container_name: time-and-attention-redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    networks:
+      - app-network
+    volumes:
+      - redis-data:/data
+    labels:
+      - "com.example.description=Redis Cache"
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+    driver: local
