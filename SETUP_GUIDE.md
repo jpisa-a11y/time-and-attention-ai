@@ -108,6 +108,7 @@ Edit colors in `client/src/index.css`:
   --primary: #c85a3a;        /* Terracotta */
   --secondary: #a8d5ba;      /* Sage */
   --accent: #2d5a3d;         /* Forest Green */
+  --background: #f9f7f4;     /* Sand/Cream */
   /* ... other color variables ... */
 }
 ```
