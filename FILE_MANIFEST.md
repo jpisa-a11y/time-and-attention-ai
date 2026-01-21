@@ -1,6 +1,7 @@
 # File Manifest: Time & Attention AI Website
 
 ## Project Overview
+Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI vision with five main pages and custom design system.
 
 Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI vision with three main pages and custom design system.
 
@@ -11,6 +12,8 @@ Complete React + TypeScript website showcasing Joseph Pisa's "pay it forward" AI
 ```
 package.json                 # Project dependencies and scripts
 tsconfig.json               # TypeScript configuration
+tsconfig.node.json          # TypeScript Node configuration
+vite.config.ts              # Vite build configuration
 tsconfig.node.json          # TypeScript configuration for Node.js
 vite.config.ts              # Vite build tool configuration
 components.json             # shadcn/ui component configuration
@@ -18,6 +21,8 @@ components.json             # shadcn/ui component configuration
 .prettierrc                  # Code formatting rules
 .prettierignore              # Prettier ignore rules
 README.md                    # Project documentation
+SETUP_GUIDE.md              # Setup and development guide
+ideas.md                    # Design brainstorm and vision document
 SETUP_GUIDE.md              # Detailed setup and development guide
 FILE_MANIFEST.md             # This file
 ideas.md                    # Design brainstorm and vision document
@@ -59,6 +64,7 @@ client/src/
   ├── main.tsx              # React entry point
   ├── App.tsx               # Main router and layout wrapper
   ├── index.css             # Global styles and design system
+  └── const.ts              # Client-side constants
   └── const.ts              # Client constants
 ```
 
@@ -69,6 +75,7 @@ client/src/pages/
   ├── Home.tsx              # Homepage with hero, vision, mission
   ├── HowItWorks.tsx        # Interactive 5-step qualification timeline
   ├── Mentors.tsx           # Licensed professionals spotlight
+  ├── FutureVision.tsx      # Future vision and AI possibilities
   ├── FutureVision.tsx      # Future vision and possibilities
   ├── Insights.tsx          # Insights and analysis
   └── NotFound.tsx          # 404 page
@@ -145,6 +152,10 @@ client/src/contexts/
 ```
 
 ##### Hooks: `/client/src/hooks`
+```
+client/src/hooks/
+  ├── useComposition.ts     # Composition hook for text input
+  ├── useMobile.tsx         # Mobile device detection hook
 
 ```
 client/src/hooks/
@@ -212,7 +223,7 @@ patches/
 ### Router: `client/src/App.tsx`
 
 - Wouter-based client-side routing
-- Three main routes: `/`, `/how-it-works`, `/mentors`
+- Five main routes: `/`, `/how-it-works`, `/mentors`, `/future-vision`, `/insights`
 - ThemeProvider wrapper
 - Error boundary
 - Toast notifications (Sonner)
@@ -253,6 +264,18 @@ patches/
 - Key values highlighting
 
 ### Future Vision: `client/src/pages/FutureVision.tsx`
+- Exploration of AI's transformative possibilities
+- Nuclear possibilities of AI
+- Vision for human-AI collaboration
+- Future scenarios and opportunities
+- Joseph Pisa's perspective on AI potential
+
+### Insights: `client/src/pages/Insights.tsx`
+- Collection of essays by Joseph Pisa
+- Thought leadership on AI and human values
+- Essays on time as currency
+- Productivity and stress paradox
+- Societal transformation through AI
 
 - Vision for the future of AI and humanity
 - Exploration of possibilities and potential
@@ -425,6 +448,22 @@ All illustrations are AI-generated watercolor style matching the Organic Authent
 8. Footer
 
 ### Future Vision Sections
+1. Navigation bar
+2. Hero section with rocket animation
+3. Nuclear possibilities of AI
+4. Transformative AI scenarios
+5. Future opportunities and vision
+6. Joseph Pisa's perspective
+7. Footer
+
+### Insights Sections
+1. Navigation bar
+2. Hero section
+3. Essay collection overview
+4. Individual essay cards with excerpts
+5. Full essay content
+6. Author attribution
+7. Footer
 
 - Vision for AI and humanity's future
 - Exploration of possibilities
