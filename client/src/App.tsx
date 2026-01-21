@@ -10,7 +10,6 @@ import Mentors from "./pages/Mentors";
 import FutureVision from "./pages/FutureVision";
 import Insights from "./pages/Insights";
 
-
 function Router() {
   return (
     <Switch>
@@ -34,9 +33,7 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-      >
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />
