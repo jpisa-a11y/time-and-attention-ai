@@ -28,7 +28,21 @@
     "VITE_OAUTH_PORTAL_URL",
     "VITE_STRIPE_PUBLIC_KEY",
     "VITE_BUILD_TARGET",
-    "VITE_BUILD_MINIFY"
+    "VITE_BUILD_MINIFY",
+    "VAPI_API_KEY",
+    "VAPI_PHONE_NUMBER_ID",
+    "VAPI_SERVER_URL",
+    "VAPI_SERVER_SECRET",
+    "TWILIO_ACCOUNT_SID",
+    "TWILIO_AUTH_TOKEN",
+    "TWILIO_PHONE_NUMBER",
+    "DEEPGRAM_API_KEY",
+    "DEEPGRAM_STT_MODEL",
+    "DEEPGRAM_TTS_VOICE",
+    "PINECONE_API_KEY",
+    "PINECONE_ENVIRONMENT",
+    "PINECONE_INDEX_NAME",
+    "PINECONE_NAMESPACE"
   ],
   "headers": [
     {
@@ -70,7 +84,7 @@
         },
         {
           "key": "Permissions-Policy",
-          "value": "geolocation=(), microphone=(), camera=()"
+          "value": "geolocation=(), microphone=(self), camera=()"
         }
       ]
     }
